@@ -2,10 +2,22 @@
 .stack 32
 .data        
 veri1 db 11h,10h,9h,8h
-veri db 10,12,13,11
+veri db 13,11,12,10
 .code                
 
-.startup        
+.startup
+
+  lea si,veri
+  mov cx,8
+  dongu:
+  mov al,[si]
+  inc si
+  xchg [si],al
+  mov [si-1],al 
+
+  loop dongu:
+    
+        
   ;-------------  
   ;mov cx,10
   ;mov ax,0h
